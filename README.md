@@ -1,1 +1,4 @@
 # machine_learning
+Machine learning adalah salah satu sub-bidang dari ilmu kecerdasan buatan (AI) yang mempelajari cara untuk membuat mesin dapat belajar dari data tanpa perlu diprogram secara eksplisit.
+
+Dalam machine learning, mesin (atau program komputer) diprogram untuk menganalisis data yang diberikan, mengidentifikasi pola, dan mengambil keputusan atau melakukan tugas tertentu berdasarkan pola-pola tersebut. Proses pembelajaran mesin dilakukan melalui pemrosesan data besar, yang disebut sebagai "training data", dan mesin secara bertahap mempelajari pola-pola dalam data tersebut dan meningkatkan kemampuannya dalam membuat keputusan atau melakukan tugas-tugas tertentu.
