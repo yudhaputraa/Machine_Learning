@@ -23,4 +23,3 @@ Dalam implementasi decision tree, ada beberapa library dan framework machine lea
 
 Secara keseluruhan, decision tree adalah metode machine learning yang berguna untuk membangun model prediksi atau klasifikasi berdasarkan serangkaian aturan atau keputusan yang dibuat secara hierarkis. Dalam penggunaannya, decision tree dapat memberikan wawasan yang berguna tentang hubungan antara fitur atau atribut dalam data dan dapat diimplementasikan dengan berbagai teknik untuk meningkatkan performa dan mengatasi kelemahan yang ada.
 
-ini tambahan.
