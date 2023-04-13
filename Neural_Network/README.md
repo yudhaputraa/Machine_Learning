@@ -1,0 +1,10 @@
+# Neural Network
+Neural network (jaringan saraf tiruan) adalah sebuah model matematis yang terinspirasi dari cara kerja sistem saraf pada otak manusia. Neural network digunakan untuk melakukan tugas-tugas seperti pengenalan pola, klasifikasi, prediksi, dan pengambilan keputusan berdasarkan data masukan.
+
+Secara umum, neural network terdiri dari banyak sekali "neuron" atau simpul, yang saling terhubung satu sama lain dan membentuk lapisan-lapisan (layer). Setiap neuron memiliki beberapa input dan satu output, yang dihubungkan oleh "bobot" atau parameter yang dapat diubah saat proses pelatihan. Input yang diberikan pada neuron diolah dengan menggunakan fungsi aktivasi, yang menghasilkan output yang kemudian menjadi input bagi neuron di layer selanjutnya.
+
+Proses pelatihan neural network melibatkan optimasi bobot dan bias pada setiap neuron agar dapat menghasilkan output yang sesuai dengan target. Proses ini dilakukan dengan menggunakan metode seperti backpropagation, yang menghitung gradien dari fungsi kerugian (loss function) untuk menentukan perubahan yang perlu dilakukan pada setiap bobot dan bias.
+
+Salah satu kelebihan neural network adalah kemampuannya untuk belajar dari data masukan dan menemukan pola-pola yang kompleks dan tidak linear. Neural network juga dapat digunakan pada berbagai jenis masukan, termasuk gambar, suara, teks, dan data numerik. Dalam beberapa kasus, neural network dapat menghasilkan performa yang lebih baik daripada model statistik tradisional.
+
+Neural network telah digunakan dalam berbagai aplikasi, seperti pengenalan gambar, pengenalan suara, deteksi fraud, dan prediksi harga saham. Saat ini, neural network juga digunakan dalam teknologi-teknologi AI yang lebih canggih, seperti deep learning dan reinforcement learning, yang memungkinkan pengembangan aplikasi yang lebih kompleks dan mendalam.
