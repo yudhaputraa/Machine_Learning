@@ -7,3 +7,8 @@ Clustering adalah salah satu metode unsupervised learning, di mana algoritma bel
 Terdapat beberapa teknik clustering yang sering digunakan dalam machine learning, seperti k-means, hierarchical clustering, DBSCAN, dan Gaussian mixture model. Setiap teknik memiliki keunggulan dan kelemahan tersendiri, dan pemilihan teknik clustering yang tepat tergantung pada karakteristik data yang akan dikelompokkan dan tujuan analisis.
 
 Clustering digunakan dalam berbagai bidang, seperti pengelompokkan konsumen dalam analisis pasar, identifikasi pola dalam data biomedis, pengelompokkan citra dalam pengolahan citra, dan pengelompokkan dokumen dalam pengolahan bahasa alami.
+
+Clustering sifatnya bukan prediksi(memperkirakan masa depan), namaun lebihbersifat Knowledge discovery, yaitu melihat apa yang telah terjadi.
+
+clustring tidak memerlukan training dataset. Clustring justru akan menciptakan data baru yg kemudian dpt digunakan utk memperkaya data yang ada.
+
