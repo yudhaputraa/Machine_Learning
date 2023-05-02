@@ -1,0 +1,7 @@
+# MARKET BASKET ANALYSIS
+
+Market basket analysis adalah teknik analisis data yang digunakan untuk mengidentifikasi pola pembelian konsumen dan hubungan antara produk atau layanan yang dibeli dalam sebuah transaksi. Tujuan dari market basket analysis adalah untuk mengetahui hubungan antar produk dan mencari asosiasi atau kombinasi produk yang sering dibeli secara bersamaan.
+
+Market basket analysis sering digunakan dalam dunia bisnis, terutama dalam retail dan e-commerce, untuk mengoptimalkan strategi penjualan dan pemasaran. Dengan mengetahui pola pembelian konsumen dan asosiasi produk, perusahaan dapat mengidentifikasi produk-produk yang sering dibeli bersamaan dan mengambil keputusan tentang strategi penjualan dan pemasaran, seperti penempatan produk di toko atau website, penyusunan paket produk, atau penentuan harga.
+
+Salah satu algoritma yang sering digunakan dalam market basket analysis adalah algoritma Apriori. Algoritma Apriori bekerja dengan cara mencari itemset dengan support (frekuensi kemunculan) di atas threshold tertentu, lalu mencari asosiasi antara itemset tersebut dengan confidence di atas threshold tertentu. Dengan menggunakan algoritma Apriori, kita dapat menemukan asosiasi antara produk atau layanan yang sering dibeli secara bersamaan dan dapat digunakan untuk mengoptimalkan strategi bisnis.
