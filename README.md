@@ -21,4 +21,24 @@ Berikut adalah beberapa algoritma dalam machine learning yang populer:
 
 8. Neural Networks: Algoritma ini terinspirasi oleh struktur dan fungsi jaringan saraf manusia. Neural networks terdiri dari lapisan-lapisan neuron buatan yang saling terhubung dan dapat digunakan untuk pengklasifikasian, regresi, dan pemrosesan data kompleks lainnya.
 
-7. Gradient Boosting: Algoritma ini juga merupakan ensemble learning yang menggabungkan beberapa model kecil yang lemah menjadi model yang lebih kuat. Gradient Boosting menggunakan gradien penurunan untuk mengoptimalkan model secara bertahap.
+9. Gradient Boosting: Algoritma ini juga merupakan ensemble learning yang menggabungkan beberapa model kecil yang lemah menjadi model yang lebih kuat. Gradient Boosting menggunakan gradien penurunan untuk mengoptimalkan model secara bertahap.
+
+10. Logistic Regression: Algoritma ini digunakan untuk klasifikasi biner atau multikelas. Menggunakan fungsi logistik, algoritma ini memodelkan hubungan antara variabel input dan probabilitas kelas target.
+
+11. Gradient Descent: Algoritma optimisasi yang digunakan untuk menemukan nilai optimum dari fungsi biaya atau kesalahan dalam model machine learning. Dalam machine learning, gradient descent digunakan untuk memperbarui parameter model secara iteratif berdasarkan gradien fungsi biaya.
+
+12. AdaBoost: Algoritma ensemble learning yang menggabungkan beberapa model yang lemah menjadi model yang lebih kuat. Setiap model dalam AdaBoost diberi bobot berdasarkan tingkat kesalahan prediksi sebelumnya.
+
+13. XGBoost: Algoritma ensemble learning yang merupakan pengembangan dari Gradient Boosting. XGBoost menggunakan pendekatan optimisasi yang lebih efisien dan memiliki performa yang lebih baik dalam mengatasi masalah regresi dan klasifikasi.
+
+14. Principal Component Analysis (PCA): Algoritma ini digunakan untuk reduksi dimensi data dengan memproyeksikan data ke ruang fitur yang lebih rendah dengan mempertahankan informasi yang signifikan. PCA membantu mengidentifikasi pola penting dan mengurangi kompleksitas data.
+
+15. Recurrent Neural Networks (RNN): Jenis neural network yang dirancang untuk memproses data berurutan atau temporal, seperti teks atau seri waktu. RNN memiliki koneksi siklus yang memungkinkan informasi sebelumnya berdampak pada pemrosesan selanjutnya.
+
+16. Convolutional Neural Networks (CNN): Jenis neural network yang dirancang khusus untuk memproses data grid, seperti gambar. CNN menggunakan lapisan konvolusi yang memungkinkan ekstraksi fitur spasial dari data.
+
+17. Long Short-Term Memory (LSTM): Jenis RNN yang dirancang untuk mengatasi masalah vanishing gradient dalam pemrosesan urutan panjang. LSTM memiliki kemampuan memori jangka panjang yang membantu dalam memproses urutan yang kompleks.
+
+18. Generative Adversarial Networks (GAN): Jenis neural network yang terdiri dari dua model, generator dan diskriminator, yang bersaing satu sama lain. GAN digunakan untuk menghasilkan data baru yang realistis dengan mempelajari distribusi data latihan.
+
+19. Support Vector Regression (SVR): Versi regresi dari Support Vector Machines (SVM). Algoritma ini digunakan untuk memodelkan hubungan antara variabel input dan output kontinu dengan mencari hyperplane yang memiliki margin maksimum.
