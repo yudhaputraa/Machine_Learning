@@ -20,6 +20,45 @@ print(data)
 ```
 ```{r}
 # dataframe
-dataX = data.frame(id = c("A", "B", "C", "D", "E", "F", "G", "H"), jarak1 = c(7, 6, 8, 5, 9, 9.5, 8.3, 7.5), jarak2 = c(1.2, 1.7, 1.5, 1.3, 1.0, 1.4, 0.8, 1.1))
-print(dataX)
+df = data.frame(id = c("A", "B", "C", "D", "E", "F", "G", "H"), jarak1 = c(7, 6, 8, 5, 9, 9.5, 8.3, 7.5), jarak2 = c(1.2, 1.7, 1.5, 1.3, 1.0, 1.4, 0.8, 1.1))
+print(df)
 ```
+```{r}
+# Test rumus
+hasil = sqrt((7.5-7)^2+(1.1-1.2)^2)
+print(hasil)
+print(nrow(df))
+a = 1
+print(df[8,2])
+```
+```{r}
+print("Menghitung jarak dengan Euclidean distance \n")
+toris = nrow(df)
+a=1
+nilai_d = c()
+d = c()
+while(a<toris){
+  hasil = sqrt((df[toris,2] - df[a,2])^2 + (df[toris,3]-df[a,3])^2)
+  nilai_d = c(nilai_d, hasil)
+  d = c(d,paste("H",df[a,1], sep =""))
+  print(paste("Hasil dari d H",df[a,1]," : ",hasil,sep=""))
+  a=1+a
+}
+```
+```{r}
+data_hasil = data.frame( d = d,nilai_d=nilai_d )
+print(data_hasil)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
