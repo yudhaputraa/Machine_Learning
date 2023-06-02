@@ -49,8 +49,23 @@ while(a<toris){
 data_hasil = data.frame( d = d,nilai_d=nilai_d )
 print(data_hasil)
 ```
+```{r}
+urut = data_hasil[order(data_hasil$nilai_d),]
 
+```
+```{r}
+x <- c(7,6,8,5,9,9.5,8.3,7.5)
+y <- c(1.2,1.7,1.5,1.3,1.3,1.0,1.4,0.8,1.1)
 
+bagus_x <- c(7,8,9,9.5)
+bagus_y <- c(1.2,1.5,1.0,1.4)
+
+kurang_x <- c(6,5,8.3)
+kurang_y <- c(1.7,1.3,0.8)
+
+test_x <- c(7.5)
+test_y <- c(1.1)
+```
 
 
 
