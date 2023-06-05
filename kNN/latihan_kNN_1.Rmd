@@ -56,7 +56,7 @@ urut = data_hasil[order(data_hasil$nilai_d),]
 ```{r}
 # membuat array produk
 x <- c(7,6,8,5,9,9.5,8.3,7.5)
-y <- c(1.2,1.7,1.5,1.3,1.3,1.0,1.4,0.8,1.1)
+y <- c(1.2,1.7,1.5,1.3,1.0,1.4,0.8,1.1)
 
 bagus_x <- c(7,8,9,9.5)
 bagus_y <- c(1.2,1.5,1.0,1.4)
@@ -75,6 +75,25 @@ merk_kurang <- c('B','D','G')
 merk_test <- c('H')
 ```
 
+```{r}
+plot(x,y,col="blue", main = "Data produk", cex = 1.3, pch = 16, xlab = "keasama", ylab = "kelenturan")
+```
+```{r}
+plot(bagus_x,bagus_y,col ="red",pch=4, lwd=2, cex=2)
+points(test_x, test_y,col="black",pch = 22, lwd=2, cex=2)
+```
+```{r}
+kurang_x <- c(6,5,8.3)
+kurang_y <- c(1.7,1.3,0.8)
+```
+
+```{r}
+# Memplot merk
+plot(bagus_x, bagus_y, col = "red", pch = 4, lwd = 2, cex = 2)
+text(bagus_x,bagus_y,labels = merk_bagus, cex = 0.7, pos = 3)
+text(kurang_x,kurang_y,labels = merk_kurang, cex = 0.7, pos = 3)
+text(test_x, test_x, labels = merk_test, cex = 0.7, pos = 3)
+```
 
 
 
