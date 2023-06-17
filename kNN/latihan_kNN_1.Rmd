@@ -221,7 +221,19 @@ bubblesort <- function(x){
 bubblesort(d)
 ```
 ```{r}
-# listing program
+# listing program 4.4 Modifikasi Bubblesort
+sortknn <- function(d,k){
+  for (last in length(d):2) {
+    for (first in 1:(last - 1)){
+      if(d[first] > d[first + 1]){
+        save <- d[first]
+        d[first] <- d[first + 1]
+        d[first + 1] <- save
+      }
+    }
+  }
+  return (d[1:k])
+}
 ```
 
 
