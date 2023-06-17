@@ -236,6 +236,10 @@ sortknn <- function(d,k){
 }
 ```
 
+```{r}
+sortknn(d,3)
+```
+
 
 
 
