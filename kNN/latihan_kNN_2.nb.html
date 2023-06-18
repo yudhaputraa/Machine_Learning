@@ -1752,31 +1752,49 @@ display: none;
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a>
-Notebook. When you execute code within the notebook, the results appear
-beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within
-the chunk or by placing your cursor inside it and pressing
-<em>Ctrl+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YSA9IG1hdHJpeChjKCAgXCJBXCIsNywxLjIsXCJCYWd1c1wiXG4gICAgICAgICAgICAgICAgLCBcIkJcIiw2LDEuNyxcIkt1cmFuZyBiYWd1c1wiXG4gICAgICAgICAgICAgICAgLCBcIkNcIiw4LDEuNSxcIkJhZ3VzXCJcbiAgICAgICAgICAgICAgICAsIFwiRFwiLDUsMS4zLFwiS3VyYW5nIGJhZ3VzXCJcbiAgICAgICAgICAgICAgICAsIFwiRVwiLDksMS4wLFwiQmFndXNcIlxuICAgICAgICAgICAgICAgICwgXCJGXCIsOS41LDEuNCxcIkJhZ3VzXCJcbiAgICAgICAgICAgICAgICAsIFwiR1wiLDguMywwLjgsXCJLdXJhbmcgYmFndXNcIlxuICAgICAgICAgICAgICAgICwgXCJIXCIsNy41LDEuMSxcIj9cIlxuICAgICAgICAgICAgICAgICksOCw0LFRSVUUpXG5wcmludChkYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>data = matrix(c(  &quot;A&quot;,7,1.2,&quot;Bagus&quot;
+                , &quot;B&quot;,6,1.7,&quot;Kurang bagus&quot;
+                , &quot;C&quot;,8,1.5,&quot;Bagus&quot;
+                , &quot;D&quot;,5,1.3,&quot;Kurang bagus&quot;
+                , &quot;E&quot;,9,1.0,&quot;Bagus&quot;
+                , &quot;F&quot;,9.5,1.4,&quot;Bagus&quot;
+                , &quot;G&quot;,8.3,0.8,&quot;Kurang bagus&quot;
+                , &quot;H&quot;,7.5,1.1,&quot;?&quot;
+                ),8,4,TRUE)
+print(data)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gIFssM10gIFssNF0gICAgICAgICAgXG5bMSxdIFwiQVwiICBcIjdcIiAgIFwiMS4yXCIgXCJCYWd1c1wiICAgICAgIFxuWzIsXSBcIkJcIiAgXCI2XCIgICBcIjEuN1wiIFwiS3VyYW5nIGJhZ3VzXCJcblszLF0gXCJDXCIgIFwiOFwiICAgXCIxLjVcIiBcIkJhZ3VzXCIgICAgICAgXG5bNCxdIFwiRFwiICBcIjVcIiAgIFwiMS4zXCIgXCJLdXJhbmcgYmFndXNcIlxuWzUsXSBcIkVcIiAgXCI5XCIgICBcIjFcIiAgIFwiQmFndXNcIiAgICAgICBcbls2LF0gXCJGXCIgIFwiOS41XCIgXCIxLjRcIiBcIkJhZ3VzXCIgICAgICAgXG5bNyxdIFwiR1wiICBcIjguM1wiIFwiMC44XCIgXCJLdXJhbmcgYmFndXNcIlxuWzgsXSBcIkhcIiAgXCI3LjVcIiBcIjEuMVwiIFwiP1wiICAgICAgICAgICBcbiJ9 -->
+<pre><code>     [,1] [,2]  [,3]  [,4]          
+[1,] &quot;A&quot;  &quot;7&quot;   &quot;1.2&quot; &quot;Bagus&quot;       
+[2,] &quot;B&quot;  &quot;6&quot;   &quot;1.7&quot; &quot;Kurang bagus&quot;
+[3,] &quot;C&quot;  &quot;8&quot;   &quot;1.5&quot; &quot;Bagus&quot;       
+[4,] &quot;D&quot;  &quot;5&quot;   &quot;1.3&quot; &quot;Kurang bagus&quot;
+[5,] &quot;E&quot;  &quot;9&quot;   &quot;1&quot;   &quot;Bagus&quot;       
+[6,] &quot;F&quot;  &quot;9.5&quot; &quot;1.4&quot; &quot;Bagus&quot;       
+[7,] &quot;G&quot;  &quot;8.3&quot; &quot;0.8&quot; &quot;Kurang bagus&quot;
+[8,] &quot;H&quot;  &quot;7.5&quot; &quot;1.1&quot; &quot;?&quot;           </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YV9rZWJhbGlrID0gdChkYXRhKVxucHJpbnQoZGF0YV9rZWJhbGlrKVxuYGBgIn0= -->
+<pre class="r"><code>data_kebalik = t(data)
+print(data_kebalik)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdICAgIFssMl0gICAgICAgICAgIFssM10gICAgWyw0XSAgICAgICAgICAgWyw1XSAgICBbLDZdICAgIFssN10gICAgICAgICAgIFssOF0gXG5bMSxdIFwiQVwiICAgICBcIkJcIiAgICAgICAgICAgIFwiQ1wiICAgICBcIkRcIiAgICAgICAgICAgIFwiRVwiICAgICBcIkZcIiAgICAgXCJHXCIgICAgICAgICAgICBcIkhcIiAgXG5bMixdIFwiN1wiICAgICBcIjZcIiAgICAgICAgICAgIFwiOFwiICAgICBcIjVcIiAgICAgICAgICAgIFwiOVwiICAgICBcIjkuNVwiICAgXCI4LjNcIiAgICAgICAgICBcIjcuNVwiXG5bMyxdIFwiMS4yXCIgICBcIjEuN1wiICAgICAgICAgIFwiMS41XCIgICBcIjEuM1wiICAgICAgICAgIFwiMVwiICAgICBcIjEuNFwiICAgXCIwLjhcIiAgICAgICAgICBcIjEuMVwiXG5bNCxdIFwiQmFndXNcIiBcIkt1cmFuZyBiYWd1c1wiIFwiQmFndXNcIiBcIkt1cmFuZyBiYWd1c1wiIFwiQmFndXNcIiBcIkJhZ3VzXCIgXCJLdXJhbmcgYmFndXNcIiBcIj9cIiAgXG4ifQ== -->
+<pre><code>     [,1]    [,2]           [,3]    [,4]           [,5]    [,6]    [,7]           [,8] 
+[1,] &quot;A&quot;     &quot;B&quot;            &quot;C&quot;     &quot;D&quot;            &quot;E&quot;     &quot;F&quot;     &quot;G&quot;            &quot;H&quot;  
+[2,] &quot;7&quot;     &quot;6&quot;            &quot;8&quot;     &quot;5&quot;            &quot;9&quot;     &quot;9.5&quot;   &quot;8.3&quot;          &quot;7.5&quot;
+[3,] &quot;1.2&quot;   &quot;1.7&quot;          &quot;1.5&quot;   &quot;1.3&quot;          &quot;1&quot;     &quot;1.4&quot;   &quot;0.8&quot;          &quot;1.1&quot;
+[4,] &quot;Bagus&quot; &quot;Kurang bagus&quot; &quot;Bagus&quot; &quot;Kurang bagus&quot; &quot;Bagus&quot; &quot;Bagus&quot; &quot;Kurang bagus&quot; &quot;?&quot;  </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the
-toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and
-output will be saved alongside it (click the <em>Preview</em> button or
-press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the
-editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not
-run any R code chunks. Instead, the output of the chunk when it was last
-run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkxhdGloYW4ga05OIGtlIDIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KVHJ5IGV4ZWN1dGluZyB0aGlzIGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqUnVuKiBidXR0b24gd2l0aGluIHRoZSBjaHVuayBvciBieSBwbGFjaW5nIHlvdXIgY3Vyc29yIGluc2lkZSBpdCBhbmQgcHJlc3NpbmcgKkN0cmwrU2hpZnQrRW50ZXIqLiANCg0KYGBge3J9DQpwbG90KGNhcnMpDQpgYGANCg0KQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkN0cmwrQWx0K0kqLg0KDQpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4NCg0KVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkxhdGloYW4ga05OIGtlIDIiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQoNCmBgYHtyfQ0KZGF0YSA9IG1hdHJpeChjKCAgIkEiLDcsMS4yLCJCYWd1cyINCiAgICAgICAgICAgICAgICAsICJCIiw2LDEuNywiS3VyYW5nIGJhZ3VzIg0KICAgICAgICAgICAgICAgICwgIkMiLDgsMS41LCJCYWd1cyINCiAgICAgICAgICAgICAgICAsICJEIiw1LDEuMywiS3VyYW5nIGJhZ3VzIg0KICAgICAgICAgICAgICAgICwgIkUiLDksMS4wLCJCYWd1cyINCiAgICAgICAgICAgICAgICAsICJGIiw5LjUsMS40LCJCYWd1cyINCiAgICAgICAgICAgICAgICAsICJHIiw4LjMsMC44LCJLdXJhbmcgYmFndXMiDQogICAgICAgICAgICAgICAgLCAiSCIsNy41LDEuMSwiPyINCiAgICAgICAgICAgICAgICApLDgsNCxUUlVFKQ0KcHJpbnQoZGF0YSkNCmBgYA0KYGBge3J9DQpkYXRhX2tlYmFsaWsgPSB0KGRhdGEpDQpwcmludChkYXRhX2tlYmFsaWspDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
 
 
 
