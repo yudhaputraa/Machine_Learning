@@ -27,6 +27,80 @@ df_kebalik = t(df)
 print(df_kebalik)
 
 ```
+```{r}
+KAT_df<-df[3]
+print(KAT_df)
+```
+```{r}
+cari_df<-df[df[,"KAT"]=="Kurang bagus",]
+print(cari_df)
+```
+```{r}
+# Terdapat 8 perintah dasar yang akan sangat digunakan dalam kegiatan manipulasi data. Semua fungsi-fungsi dibawah ini sudah termasuk di dalam paket dplyr.
+
+# filter(): Mengambil baris berdasarkan kondisi nilainya.
+# distinct(): Menghilangkan baris yang sama atau duplikat.
+# arrange(): Mengurutkan baris.
+# select(): Mengambil kolom berdasarkan nama kolomnya.
+# rename(): Mengubah nama kolom.
+# mutate(): Menambahkan atau membuat kolom baru dan menjaga kolom sama yang sudah ada.
+# transmute(): Menambahkan atau membuat kolom baru dan menghapus kolom yang sama atau sudah ada
+# summarise(): Melakukan komputasi statistika (Contoh: menghitung total (sum) atau rata-rata (mean))
+
+# Adapun fungsi-fungsi yang akan digunakan seperti:
+
+# pull(): Mengambil hanya data atau isi dari kolom berupa vector.
+# select(): Memanggil satu atau lebih kolom berupda data table.
+# select_if(): Memanggil kolom dengan pengkondisian.
+# Helper functions - starts_with(), ends_with(), contains(), matches(), one_of(): Memanggil kolom berdasarkan kriteria tertentu atas nama kolomnya.
+```
+
+```{r}
+# menghilangkan "kurang bagus" menjadi "kurang"
+df$KAT[df$KAT == "Kurang bagus"] <- "Kurang"
+df
+```
+```{r}
+train <- df[1:2]
+train
+```
+```{r}
+test <- df[8,]
+test <- test[1:2]
+test
+```
+```{r}
+train <- train[-8,]
+train
+```
+```{r}
+cl <- df[3]
+cl <- cl[-8,]
+cl
+```
+```{r}
+library(class)
+hasil <- knn(train, test, cl, k=3)
+hasil
+```
+```{r}
+hasil_knn <- cbind(test, label=as.vector(hasil))
+```
+```{r}
+hasil_knn
+```
+```{r}
+hasil <- knn(train, test, cl, k=3, prob=T)
+hasil
+```
+
+
+
+
+
+
+
+
 
 
 
