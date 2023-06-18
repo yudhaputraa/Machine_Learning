@@ -93,16 +93,45 @@ hasil_knn
 hasil <- knn(train, test, cl, k=3, prob=T)
 hasil
 ```
-
-
-
-
-
-
-
-
-
-
+```{r}
+iris
+head(iris)
+```
+```{r}
+class(iris)
+```
+```{r}
+str(iris)
+```
+```{r}
+colnames(iris)
+```
+```{r}
+iris[,"Petal.Length"]
+```
+```{r}
+# informasi detail utk dataset iris dpt ditampilkan
+summary(iris)
+```
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width, main = "Edgar Anderson`s Iris Data")
+```
+```{r}
+plot(iris$Petal.Length, 
+     iris$Petal.Width, 
+     pch=21,
+     bg = c("red","green3","blue"),
+     main = "Edgar Anderson`s Iris Data")
+```
+```{r}
+plot(iris$Petal.Length, 
+     iris$Petal.Width, 
+     pch=c(23,24,25)[unclass(iris$Species)],
+     main = "Edgar Anderson`s Iris Data")
+```
+```{r}
+plot(iris)
+```
 
 
 
