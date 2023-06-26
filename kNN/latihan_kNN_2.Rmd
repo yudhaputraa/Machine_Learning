@@ -132,8 +132,22 @@ plot(iris$Petal.Length,
 ```{r}
 plot(iris)
 ```
+```{r}
+library(class)
+data(iris)
+```
 
+```{r}
+# Tahap 1
 
+set.seed(99)
+rannum <- sample(rep(1:150))
+rannum
+```
+```{r}
+iris <- iris[rannum,]
+iris
+```
 
 
 
