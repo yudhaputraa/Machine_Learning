@@ -139,7 +139,7 @@ data(iris)
 
 ```{r}
 # Tahap 1
-
+# Random sampling
 set.seed(99)
 rannum <- sample(rep(1:150))
 rannum
@@ -148,7 +148,17 @@ rannum
 iris <- iris[rannum,]
 iris
 ```
+```{r}
+# Tahap 2
+# Normalisasi dataset
 
+normalisasi <- function(data){
+  return((data - min(data))(max(data)-min(data)))
+}
+
+# Proses normalisasi data adalah hal yg umum dilakukan dlm berbagai kegiatan riset. Proses normalisasi tidak akan mengubah "arti" dari data yang ada.
+
+```
 
 
 
