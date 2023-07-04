@@ -187,7 +187,13 @@ iris.test.target <- iris[121:150,5]
 
 summary(iris.normal)
 ```
+```{r}
+# Tahap 4
+# Menjalankan algoritma k-NN dgn bantuan fungsi knn().
 
+knnhasil <- knn(train = iris.train, test = iris.test, cl = iris.train.target, k=19)
+knnhasil
+```
 
 
 
