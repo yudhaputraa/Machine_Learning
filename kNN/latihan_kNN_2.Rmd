@@ -160,6 +160,17 @@ normalisasi <- function(data){
 
 ```
 
+```{r}
+# selanjutnya buat objek baru utk menampung hasil normalisasi.kita memerlukan fungsi lapply
+
+# iris.normal <- as.data.frame(lapply(iris[,c(1,2,3,4)],normalisasi))
+iris.normal <- as.data.frame(lapply(iris[,c(1,2,3,4)],scale))
+head(iris.normal)
+```
+```{r}
+# bandingkan dengan sebelumnya
+head(iris)
+```
 
 
 
