@@ -171,7 +171,22 @@ head(iris.normal)
 # bandingkan dengan sebelumnya
 head(iris)
 ```
+```{r}
+# Tahap 3
+# Memisahan antara data training dan data uji.
 
+# tentukan 80% dari dataset, yaitu 120 buah data, utk data training.
+iris.train <- iris.normal[1:120,]
+
+# Tentukan klaisifikasi utk data training
+iris.train.target <- iris[1:120,5]
+
+# tentukan 20% dari dataset, yaitu 30 buah data, utk data uji
+iris.test <- iris.normal[121:150,]
+iris.test.target <- iris[121:150,5]
+
+summary(iris.normal)
+```
 
 
 
