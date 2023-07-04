@@ -198,6 +198,38 @@ knnhasil
 hasil_knn <- cbind(iris.test, label = as.vector(knnhasil))
 hasil_knn
 ```
+```{r}
+# Tahap 5
+# Memverikasi hasil.
+
+# perintah utk pembentukan confusion matrix sebagai berikut:
+table(iris.test.target,knnhasil)
+```
+```{r}
+# kita bisa menabahkan opsi prob = T utk melihat probabilitas utk nilai k sesuai pilihan kita.
+
+knnhasil <- knn(train = iris.train, test = iris.test, cl = iris.train.target, k=19, prob = T)
+knnhasil
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
