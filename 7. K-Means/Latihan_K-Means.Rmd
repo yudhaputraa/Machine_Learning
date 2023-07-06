@@ -1,0 +1,14 @@
+---
+title: "Latihan K-Means"
+output: html_notebook
+---
+
+## Membuat dataset
+
+
+```{r}
+
+```
+
+
+
