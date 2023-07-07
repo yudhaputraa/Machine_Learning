@@ -4,8 +4,14 @@ output: html_notebook
 ---
 
 ## Membuat dataset
+```{r}
+x <- c(1.5,1.0,3.0,5.5,3.5,4.5,3.5)
+y <- c(1.0,2.0,4.5,7.0,5.5,5.0,4.5)
+titik <- c('A','B','C','D','E','F','G')
+```
 
-
+## Tahap 1
+utk memudah memahami sebaran datanya, sebaiknya plot dataset dlm bentuk grafik dgn menggunakan R.
 ```{r}
 
 ```
