@@ -19,3 +19,23 @@ text(x,y, labels=titik, cex=0.7,pos=3)
 ## Tahap 2
 Menentukan nilai k, yang identitas dengan jumblah cluster. Mengingat datanya hanya sedikt, kita menetukan 2 buah cluster saja.
 
+## Tahap 3
+Menentukan titik tengah cluster atau centroid. saat ini belum ada data lain atau hasil perhitungan data. Sehingga pd tahap ini kita bebas memilih 2 buah titik dari dataset yg akan dijadikan sebagai titik tengah.
+
+yang kita pilih B(1.0, 2.0) dan F(4.5, 5.0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
