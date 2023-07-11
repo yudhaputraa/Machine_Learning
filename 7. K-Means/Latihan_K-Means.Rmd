@@ -8,6 +8,9 @@ output: html_notebook
 x <- c(1.5,1.0,3.0,5.5,3.5,4.5,3.5)
 y <- c(1.0,2.0,4.5,7.0,5.5,5.0,4.5)
 titik <- c('A','B','C','D','E','F','G')
+
+df <- data.frame(titik = c('A','B','C','D','E','F','G'), x = c(1.5,1.0,3.0,5.5,3.5,4.5,3.5), y = c(1.0,2.0,4.5,7.0,5.5,5.0,4.5))
+print(df)
 ```
 
 ## Tahap 1
@@ -25,9 +28,47 @@ Menentukan titik tengah cluster atau centroid. saat ini belum ada data lain atau
 yang kita pilih B(1.0, 2.0) dan F(4.5, 5.0)
 
 
+## Tahap 4
+Menghitung jarak masing-masing titik.
+```{r}
+
+print("Menghitung jarak dengan Euclidean distance \n")
+
+euclidean_distance <- function(data,centroid){
+  toris = nrow(data)
+  a=1
+  nilai_d = c()
+  d = c()
+
+  while(a<=toris){
+    if(centroid != a){
+      hasil = sqrt((data[centroid,2] - data[a,2])^2 + (data[centroid,3]-data[a,3])^2)
+      nilai_d = c(nilai_d, hasil)
+      d = c(d,paste(data[centroid,1],data[a,1], sep =""))
+      #print(paste("Hasil dari ",data[centroid,1],data[a,1]," : ",hasil,sep=""))
+    }
+    a=1+a
+  }
+  datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+  return (datahasil)
+}
 
 
+```
+```{r}
+cluster_1 = euclidean_distance(df, 2)
+print(cluster_1)
+```
+```{r}
+cluster_2 = euclidean_distance(df, 6)
+print(cluster_2)
+```
 
+```{r}
+print("Hasil dari perhitungan")
+data_hasil = data.frame( d = d,nilai_d=nilai_d )
+print(data_hasil)
+```
 
 
 
