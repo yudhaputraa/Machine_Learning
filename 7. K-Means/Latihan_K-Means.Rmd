@@ -71,6 +71,9 @@ print(data_hasil)
 ```
 
 
+## Tahap 5
+Menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasarkan jarak terdekat dgn masing-masing centroid
+
 
 
 
