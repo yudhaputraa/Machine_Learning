@@ -66,18 +66,65 @@ print(cluster_2)
 
 ```{r}
 print("Hasil dari perhitungan")
-data_hasil = data.frame( d = d,nilai_d=nilai_d )
-print(data_hasil)
+#data_hasil = data.frame( d = d,nilai_d=nilai_d )
+#print(data_hasil)
 ```
 
 
 ## Tahap 5
 Menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasarkan jarak terdekat dgn masing-masing centroid
 
+# Tahap 6
+Menentukan titik centroid yg baru. kali ini kita perlu menghitung nilai centroid yg sesunggunya (tidak lagi menebak-nebak).
+```{r}
 
+mean_centroid <- function(data, dataPilih){
+  toris = nrow(data)
+  pp = length(dataPilih)
+  a=1
+  dataX = 0
+  dataY = 0
+  while(a<=toris){
+    b=1
+    while(b<=pp){
+      if(a == dataPilih[b]){
+        dataX = dataX + data[a,2]
+        dataY = dataY + data[a,3]
+      }
+      b=b+1
+    }
+    a=1+a
+  }
+  dataY = dataY/pp
+  dataX = dataX/pp
+  datahasil <- c(dataX,dataY)
+  #print(datahasil)
+  return(datahasil)
+}
+```
 
+```{r}
+titikTerpilih1 <- c(1,2)
+titikTerpilih2 <- c(3,4,5,6,7)
+centroid1 <- mean_centroid(df,titikTerpilih1)
+centroid2 <- mean_centroid(df,titikTerpilih2)
 
-
+print(centroid1)
+print(centroid2)
+print(paste("Jadi titik centroid ke-1 yang baru adalah ",centroid1[1]," , ",centroid1[2]," , ","sebut saja C1",sep=""))
+print(paste("Jadi titik centroid ke-2 yang baru adalah ",centroid2[1]," , ",centroid2[2]," , ","sebut saja C2",sep=""))
+#print(titikTerpilih1[1])
+```
+```{r}
+x <- c(centroid1[1],centroid2[1])
+y <- c(centroid1[2],centroid2[2])
+titik <- c('C1','C2')
+dfc <- data.frame(titik = c('C1','C2'), x = c(centroid1[1],centroid2[1]), y = c(centroid1[2],centroid2[2]))
+df <- rbind(df, dfc)
+plot(df$x,df$y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df$x,df$y, labels=df$titik, cex=0.7,pos=3)
+#print(df[2])
+```
 
 
 
