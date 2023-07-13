@@ -120,11 +120,68 @@ x <- c(centroid1[1],centroid2[1])
 y <- c(centroid1[2],centroid2[2])
 titik <- c('C1','C2')
 dfc <- data.frame(titik = c('C1','C2'), x = c(centroid1[1],centroid2[1]), y = c(centroid1[2],centroid2[2]))
-df <- rbind(df, dfc)
-plot(df$x,df$y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
-text(df$x,df$y, labels=df$titik, cex=0.7,pos=3)
-#print(df[2])
+df1 <- rbind(df, dfc)
+plot(df1$x,df1$y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df1$x,df1$y, labels=df1$titik, cex=0.7,pos=3)
+print(df1)
 ```
+## Tahap 7
+Temukan kembali jarak d terdekat dari masing-masing titik dengan C1 dan C2 
+
+```{r}
+
+print("Menghitung jarak dengan Euclidean distance \n")
+
+euclidean_distance_centroid <- function(data,centroid_x,centroid_y,nama){
+  toris = nrow(data)
+  a=1
+  nilai_d = c()
+  d = c()
+
+  while(a<=toris){
+    hasil = sqrt((centroid_x - data[a,2])^2 + (centroid_y-data[a,3])^2)
+    nilai_d = c(nilai_d, hasil)
+    d = c(d,paste(data[a,1],nama, sep =""))
+    #print(paste("Hasil dari ",data[centroid,1],data[a,1]," : ",hasil,sep=""))
+    a=1+a
+  }
+  datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+  return (datahasil)
+}
+```
+
+```{r}
+jarak1 <- euclidean_distance_centroid(df,centroid1[1],centroid1[2],"C1")
+print(jarak1)
+```
+```{r}
+jarak2 <- euclidean_distance_centroid(df,centroid2[1],centroid2[2],"C2")
+print(jarak2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
