@@ -164,7 +164,8 @@ menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasark
 df_combined <- cbind(jarak1,jarak2)
 print(df_combined)
 ```
-
+## Tahap 9
+Jika kita mengulangi kembali proses pencarian mean utk menemukan centroid yg baru maka akan dpt diketahui bahwa tidak akan ada pergeseran anggota cluster atau titik centoid. Dalam hal ini apa yang kita cari sudah tercapai dan algoritma dpt dihentikan.
 
 
 
