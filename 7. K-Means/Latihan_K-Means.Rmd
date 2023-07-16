@@ -158,7 +158,12 @@ print(jarak1)
 jarak2 <- euclidean_distance_centroid(df,centroid2[1],centroid2[2],"C2")
 print(jarak2)
 ```
-
+## Tahap 8
+menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasarkan jatak terdekat dgn masing-masing centroid.
+```{r}
+df_combined <- cbind(jarak1,jarak2)
+print(df_combined)
+```
 
 
 
