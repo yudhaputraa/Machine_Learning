@@ -1,0 +1,70 @@
+---
+title: "Latihan K-Means 2"
+output: html_notebook
+---
+
+## Tahap 1
+Membuat objek utk menampung setiap titik koordinat.
+```{r}
+A <- c(1.5,1.0)
+B <- c(1.0,2.0)
+C <- c(3.0,4.5)
+D <- c(5.5,7.0)
+E <- c(3.5,5.5)
+F <- c(4.5,5.0)
+G <- c(3.5,4.5)
+```
+Hasil :
+```{r}
+A
+B
+C
+D
+E
+F
+G
+```
+```{r}
+df <- data.frame(titik = c('A','B','C','D','E','F','G'), x = c(1.5,1.0,3.0,5.5,3.5,4.5,3.5), y = c(1.0,2.0,4.5,7.0,5.5,5.0,4.5))
+```
+
+```{r}
+plot(df$x,df$y,main = "Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df$x,df$y, labels=df$titik, cex=0.7,pos=3)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
