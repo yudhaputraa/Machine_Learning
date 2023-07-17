@@ -1844,15 +1844,120 @@ cluster secara random.</p>
 objek_titik &lt;- sample(df$titik,2)
 print(objek_titik)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiRFwiIFwiQVwiXG4ifQ== -->
-<pre><code>[1] &quot;D&quot; &quot;A&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ1wiIFwiRVwiXG4ifQ== -->
+<pre><code>[1] &quot;C&quot; &quot;E&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="tahap-3" class="section level1">
+<h1>Tahap 3</h1>
+<p>Menghitung jarak masing-masing titik.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5wcmludChcIk1lbmdoaXR1bmcgamFyYWsgZGVuZ2FuIEV1Y2xpZGVhbiBkaXN0YW5jZSBcXG5cIilcbmBgYCJ9 -->
+<pre class="r"><code>
+print(&quot;Menghitung jarak dengan Euclidean distance \n&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiTWVuZ2hpdHVuZyBqYXJhayBkZW5nYW4gRXVjbGlkZWFuIGRpc3RhbmNlIFxcblwiXG4ifQ== -->
+<pre><code>[1] &quot;Menghitung jarak dengan Euclidean distance \n&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXVjbGlkZWFuX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGRhdGEsY2VudHJvaWQpe1xuICB0b3JpcyA9IG5yb3coZGF0YSlcbiAgdG8gPC0gKGxlbmd0aChkYXRhWywxXSkgLTEpXG4gIHRvdGFsX2NlbnRyb2lkID0gbGVuZ3RoKGNlbnRyb2lkKVxuICBhPTFcbiAgYj0xXG4gIG5pbGFpX2QgPSBjKClcbiAgZCA9IGMoKVxuICBcbiAgZGF0YXNlbSA8LSBkYXRhLmZyYW1lKClcbiAgZGF0YWhhc2lsIDwtIGRhdGEuZnJhbWUoSUQgPSBpbnRlZ2VyKCksIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSlcbiAgbl9yb3dzIDwtIDZcbiAgZGF0YWhhc2lsIDwtIGRhdGEuZnJhbWUoSUQgPSAxOnRvLCBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG4gIHdoaWxlIChiIDw9IHRvdGFsX2NlbnRyb2lkKSB7XG4gICAgbmlsYWlfZCA8LSBOVUxMXG4gICAgZCA8LSBOVUxMXG4gICAgYT0xXG4gICAgd2hpbGUoYTw9dG9yaXMpe1xuICAgICAgY2VudHJvaWRfdXJ1dGFuIDwtIHdoaWNoKGFzLm1hdHJpeChkYXRhKSA9PSBjZW50cm9pZFtiXSwgYXJyLmluZCA9IFRSVUUpXG4gICAgICBjZW50cm9pZF9hbmdrYSA8LSBhcy5udW1lcmljKGNlbnRyb2lkX3VydXRhblsxXSlcbiAgICAgIGlmKGNlbnRyb2lkW2JdICE9IGRhdGFbYSwxXSl7XG4gICAgICAgIGhhc2lsID0gc3FydCgoZGF0YVtjZW50cm9pZF9hbmdrYSwyXSAtIGRhdGFbYSwyXSleMiArIChkYXRhW2NlbnRyb2lkX2FuZ2thLDNdLWRhdGFbYSwzXSleMilcbiAgICAgICAgbmlsYWlfZCA9IGMobmlsYWlfZCwgaGFzaWwpXG4gICAgICAgIGQgPSBjKGQscGFzdGUoZGF0YVtjZW50cm9pZF9hbmdrYSwxXSxkYXRhW2EsMV0sIHNlcCA9XCJcIikpXG4gICAgICB9XG4gICAgICAjZGF0YWhhc2lsIDwtIGNiaW5kKGRhdGFoYXNpbCwgVGl0aWsgPSBkKVxuICAgICAgI2RhdGFoYXNpbCA8LSBjYmluZChkYXRhaGFzaWwsIEphcmFrID0gbmlsYWlfZClcbiAgICAgICNwcmludChwYXN0ZShcIkhhc2lsIGRhcmkgXCIsZGF0YVtjZW50cm9pZCwxXSxkYXRhW2EsMV0sXCIgOiBcIixoYXNpbCxzZXA9XCJcIikpXG4gICAgICBcbiAgICAgICNuYW1hX2phcmFrIDwtIHBhc3RlKFwiamFyYWtfXCIsY2VudHJvaWRfdXJ1dGFuLHNlcCA9IFwiXCIpXG4gICAgICAjcHJlZml4IDwtIFwidGl0aWtfXCJcbiAgICAgICNzdWZmaXggPC0gXCJfRGF0YVwiXG4gICAgICAjIHByaW50KG5hbWFfdGl0aWspXG4gICAgICAjZGF0YWhhc2lsIDwtIGRhdGEuZnJhbWUoVGl0aWsgPSBkLCBKYXJhayA9IG5pbGFpX2QpXG4gICAgICAjaWYoYSA9PSAxKXtcbiAgICAgICMgIGRhdGFoYXNpbCA8LSBkYXRhLmZyYW1lKFRpdGlrID0gZCwgSmFyYWsgPSBuaWxhaV9kKVxuICAgICAgI31lbHNle1xuICAgICAgIyAgbmFtYV90aXRpayA8LSBwYXN0ZShcInRpdGlrX1wiLGNlbnRyb2lkX3VydXRhbilcbiAgICAgICMgIG5hbWFfamFyYWsgPC0gcGFzdGUoXCJqYXJha19cIixjZW50cm9pZF91cnV0YW4pXG4gICAgICAjICBkYXRhaGFzaWwgPC0gY2JpbmQoZGF0YWhhc2lsLCBuYW1hX3RpdGlrID0gZClcbiAgICAgICMgIGRhdGFoYXNpbCA8LSBjYmluZChkYXRhaGFzaWwsIG5hbWFfamFyYWsgPSBuaWxhaV9kKVxuICAgICAgI31cbiAgICAgIGE9MSthXG4gICAgfVxuICAgIG5hbWFfdGl0aWsgPC0gcGFzdGUoXCJ0aXRpa19cIixiLHNlcCA9IFwiXCIpXG4gICAgZGF0YWhhc2lsW25hbWFfdGl0aWtdIDwtIGRcbiAgICBuYW1hX2phcmFrIDwtIHBhc3RlKFwiamFyYWtfXCIsYixzZXAgPSBcIlwiKVxuICAgIGRhdGFoYXNpbFtuYW1hX2phcmFrXSA8LSBuaWxhaV9kXG4gICAgYj0xK2JcbiAgfVxuICAjZGF0YWhhc2lsIDwtIGRhdGEuZnJhbWUoVGl0aWsgPSBkLCBKYXJhayA9IG5pbGFpX2QpXG4gICNyZXN1bHQgPC0gY2JpbmQoZGF0YWhhc2lsLGRhdGEpXG4gIHJldHVybiAoZGF0YWhhc2lsKVxufVxuYGBgIn0= -->
+<pre class="r"><code>euclidean_distance &lt;- function(data,centroid){
+  toris = nrow(data)
+  to &lt;- (length(data[,1]) -1)
+  total_centroid = length(centroid)
+  a=1
+  b=1
+  nilai_d = c()
+  d = c()
+  
+  datasem &lt;- data.frame()
+  datahasil &lt;- data.frame(ID = integer(), stringsAsFactors = FALSE)
+  n_rows &lt;- 6
+  datahasil &lt;- data.frame(ID = 1:to, stringsAsFactors = FALSE)
+  while (b &lt;= total_centroid) {
+    nilai_d &lt;- NULL
+    d &lt;- NULL
+    a=1
+    while(a&lt;=toris){
+      centroid_urutan &lt;- which(as.matrix(data) == centroid[b], arr.ind = TRUE)
+      centroid_angka &lt;- as.numeric(centroid_urutan[1])
+      if(centroid[b] != data[a,1]){
+        hasil = sqrt((data[centroid_angka,2] - data[a,2])^2 + (data[centroid_angka,3]-data[a,3])^2)
+        nilai_d = c(nilai_d, hasil)
+        d = c(d,paste(data[centroid_angka,1],data[a,1], sep =&quot;&quot;))
+      }
+      #datahasil &lt;- cbind(datahasil, Titik = d)
+      #datahasil &lt;- cbind(datahasil, Jarak = nilai_d)
+      #print(paste(&quot;Hasil dari &quot;,data[centroid,1],data[a,1],&quot; : &quot;,hasil,sep=&quot;&quot;))
+      
+      #nama_jarak &lt;- paste(&quot;jarak_&quot;,centroid_urutan,sep = &quot;&quot;)
+      #prefix &lt;- &quot;titik_&quot;
+      #suffix &lt;- &quot;_Data&quot;
+      # print(nama_titik)
+      #datahasil &lt;- data.frame(Titik = d, Jarak = nilai_d)
+      #if(a == 1){
+      #  datahasil &lt;- data.frame(Titik = d, Jarak = nilai_d)
+      #}else{
+      #  nama_titik &lt;- paste(&quot;titik_&quot;,centroid_urutan)
+      #  nama_jarak &lt;- paste(&quot;jarak_&quot;,centroid_urutan)
+      #  datahasil &lt;- cbind(datahasil, nama_titik = d)
+      #  datahasil &lt;- cbind(datahasil, nama_jarak = nilai_d)
+      #}
+      a=1+a
+    }
+    nama_titik &lt;- paste(&quot;titik_&quot;,b,sep = &quot;&quot;)
+    datahasil[nama_titik] &lt;- d
+    nama_jarak &lt;- paste(&quot;jarak_&quot;,b,sep = &quot;&quot;)
+    datahasil[nama_jarak] &lt;- nilai_d
+    b=1+b
+  }
+  #datahasil &lt;- data.frame(Titik = d, Jarak = nilai_d)
+  #result &lt;- cbind(datahasil,data)
+  return (datahasil)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdCA8LSBldWNsaWRlYW5fZGlzdGFuY2UoZGYsb2JqZWtfdGl0aWspXG50ZXN0XG5gYGAifQ== -->
+<pre class="r"><code>test &lt;- euclidean_distance(df,objek_titik)
+test</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6NSwic3VtbWFyeSI6W119LCJyZGYiOiJINHNJQUFBQUFBQUFCZ3R5aVREbWl1QmlZR0JnWm1CaFltSmdaZ1V5R1ZoRFE5eDBMUmlBSWtBT0l3TUxBeWVJcmdBcUVnYkpBakV2RUxPQkpSa1ltTUM2Z2FxaGNpQnhBVEFOMGNqazdBaG5PY0ZaTG5DV0s1emxCbWU1QTBrK2tCa09mR1c5bG5PUEZEaHd6amt6Yy81L0JnY2VqMk1NOGx3SDdEOCtMcDg5L2NzSys1OCtFVmEzb29QdEh6REFBSXJkcm5DN1hlRjJ1enJEV1hCWHVNTHRka1hZTGJ4cGJtMXlXSktEb0VueUwzTkdQNWlkRGl3UWkrQnUrQUN6R2lYQVdQTVNjMU9Mb1E1aWhSbnZDYk9TdlNTekpETTczaERHelVvc1NrVGlRbVNOVUdXTjBLemdMTW92MTROWkE0b1RwZ2FJUTlqUTNaS2NrMWdNY3d0TWtDc2xzU1JSTDYwSXFCL0krNGVtaFQyL29DUXpQdytvaVFrVzY4aWFHWXZRQlBoTDgwQXVTZEZOemlqTnk5WTFBbGtBVFNFTVVOY3hRbE1Iak0wS3NaTHBQMW9nc2FYbXBXZm1wY0xjbnBPWWxKb0Q1ZkFCZlF6MnNGNUJVV1plQ2N3blFORml2Wkw4a2tTWU9xN2svQnlZQ05odkRQOEFqcmxMRU93Q0FBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["ID"],"name":[1],"type":["int"],"align":["right"]},{"label":["titik_1"],"name":[2],"type":["chr"],"align":["left"]},{"label":["jarak_1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["titik_2"],"name":[4],"type":["chr"],"align":["left"]},{"label":["jarak_2"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"CA","3":"3.807887","4":"EA","5":"4.924429"},{"1":"2","2":"CB","3":"3.201562","4":"EB","5":"4.301163"},{"1":"3","2":"CD","3":"3.535534","4":"EC","5":"1.118034"},{"1":"4","2":"CE","3":"1.118034","4":"ED","5":"2.500000"},{"1":"5","2":"CF","3":"1.581139","4":"EF","5":"1.118034"},{"1":"6","2":"CG","3":"0.500000","4":"EG","5":"1.000000"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jdG90YWxfY2VudHJvaWQgPSBsZW5ndGgob2JqZWtfdGl0aWspXG4jcHJpbnQoY2xhc3ModG90YWxfY2VudHJvaWQpKVxuI2h1cnVmIDwtIFwiRFwiXG4jY2VudHJvaWRfdXJ1dGFuIDwtIHdoaWNoKGFzLm1hdHJpeChkZikgPT0gaHVydWYsIGFyci5pbmQgPSBUUlVFKVxuI3ByaW50KGNlbnRyb2lkX3VydXRhbilcblxuI3h4eHggPC0gZGF0YS5mcmFtZShBID0gYyhcImFcIiwgXCJiXCIsIFwiY1wiKSwgQiA9IGMoXCJkXCIsIFwiZVwiLCBcImZcIikpXG5cbiMgTWVuY2FyaSBodXJ1ZiBkYWxhbSBkYXRhIGZyYW1lIGJlcmRhc2Fya2FuIG5vbW9yIHVydXRhblxuI2h1cnVmIDwtIFwiRFwiXG4jbm9tb3JfdXJ1dGFuIDwtIHdoaWNoKGFzLm1hdHJpeChkZikgPT0gaHVydWYsIGFyci5pbmQgPSBUUlVFKVxuI3ByaW50KG5vbW9yX3VydXRhbilcbiNkZlxuYGBgIn0= -->
+<pre class="r"><code>
+#total_centroid = length(objek_titik)
+#print(class(total_centroid))
+#huruf &lt;- &quot;D&quot;
+#centroid_urutan &lt;- which(as.matrix(df) == huruf, arr.ind = TRUE)
+#print(centroid_urutan)
+
+#xxxx &lt;- data.frame(A = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;), B = c(&quot;d&quot;, &quot;e&quot;, &quot;f&quot;))
+
+# Mencari huruf dalam data frame berdasarkan nomor urutan
+#huruf &lt;- &quot;D&quot;
+#nomor_urutan &lt;- which(as.matrix(df) == huruf, arr.ind = TRUE)
+#print(nomor_urutan)
+#df</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="tahap-4" class="section level2">
+<h2>Tahap 4</h2>
+<p>Menentukan anggota cluster 1 dan 2 dgn cara membandingkan hasil
+perhitungan di atas.</p>
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkxhdGloYW4gSy1NZWFucyAyIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMgVGFoYXAgMQ0KTWVtYnVhdCBvYmplayB1dGsgbWVuYW1wdW5nIHNldGlhcCB0aXRpayBrb29yZGluYXQuDQpgYGB7cn0NCkEgPC0gYygxLjUsMS4wKQ0KQiA8LSBjKDEuMCwyLjApDQpDIDwtIGMoMy4wLDQuNSkNCkQgPC0gYyg1LjUsNy4wKQ0KRSA8LSBjKDMuNSw1LjUpDQpGIDwtIGMoNC41LDUuMCkNCkcgPC0gYygzLjUsNC41KQ0KYGBgDQpIYXNpbCA6DQpgYGB7cn0NCkENCkINCkMNCkQNCkUNCkYNCkcNCmBgYA0KYGBge3J9DQpkZiA8LSBkYXRhLmZyYW1lKHRpdGlrID0gYygnQScsJ0InLCdDJywnRCcsJ0UnLCdGJywnRycpLCB4ID0gYygxLjUsMS4wLDMuMCw1LjUsMy41LDQuNSwzLjUpLCB5ID0gYygxLjAsMi4wLDQuNSw3LjAsNS41LDUuMCw0LjUpKQ0KYGBgDQoNCmBgYHtyfQ0KcGxvdChkZiR4LGRmJHksbWFpbiA9ICJUaXRpayBLb3JkaW5hdCIsY2V4PTEuMyxwY2g9MTYseGxhYj0iWCIseWxhYj0iWSIpDQp0ZXh0KGRmJHgsZGYkeSwgbGFiZWxzPWRmJHRpdGlrLCBjZXg9MC43LHBvcz0zKQ0KYGBgDQojIyBUYWhhcCAyDQpUZW50dWthbiBqdW1ibGFoIGNsdXN0ZXIsIHlhaXR1IGs9MiBkYW4ganVnYSBwaWxpaCB0aXRpayBjZW50cm9pZCBjbHVzdGVyIHNlY2FyYSByYW5kb20uDQpgYGB7cn0NCiMgZnVuZ3NpIHNhbXBsZSgpIHV0ayBtZW1pbGloIGlzaSBkYXJpIG9iamVrIHRpdGlrIHNlY2FyYSByYW5kb20gc2ViYW55YWsgSyBidWFoLg0KDQpvYmpla190aXRpayA8LSBzYW1wbGUoZGYkdGl0aWssMikNCnByaW50KG9iamVrX3RpdGlrKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkxhdGloYW4gSy1NZWFucyAyIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMgVGFoYXAgMQ0KTWVtYnVhdCBvYmplayB1dGsgbWVuYW1wdW5nIHNldGlhcCB0aXRpayBrb29yZGluYXQuDQpgYGB7cn0NCkEgPC0gYygxLjUsMS4wKQ0KQiA8LSBjKDEuMCwyLjApDQpDIDwtIGMoMy4wLDQuNSkNCkQgPC0gYyg1LjUsNy4wKQ0KRSA8LSBjKDMuNSw1LjUpDQpGIDwtIGMoNC41LDUuMCkNCkcgPC0gYygzLjUsNC41KQ0KYGBgDQpIYXNpbCA6DQpgYGB7cn0NCkENCkINCkMNCkQNCkUNCkYNCkcNCmBgYA0KYGBge3J9DQpkZiA8LSBkYXRhLmZyYW1lKHRpdGlrID0gYygnQScsJ0InLCdDJywnRCcsJ0UnLCdGJywnRycpLCB4ID0gYygxLjUsMS4wLDMuMCw1LjUsMy41LDQuNSwzLjUpLCB5ID0gYygxLjAsMi4wLDQuNSw3LjAsNS41LDUuMCw0LjUpKQ0KYGBgDQoNCmBgYHtyfQ0KcGxvdChkZiR4LGRmJHksbWFpbiA9ICJUaXRpayBLb3JkaW5hdCIsY2V4PTEuMyxwY2g9MTYseGxhYj0iWCIseWxhYj0iWSIpDQp0ZXh0KGRmJHgsZGYkeSwgbGFiZWxzPWRmJHRpdGlrLCBjZXg9MC43LHBvcz0zKQ0KYGBgDQojIyBUYWhhcCAyDQpUZW50dWthbiBqdW1ibGFoIGNsdXN0ZXIsIHlhaXR1IGs9MiBkYW4ganVnYSBwaWxpaCB0aXRpayBjZW50cm9pZCBjbHVzdGVyIHNlY2FyYSByYW5kb20uDQpgYGB7cn0NCiMgZnVuZ3NpIHNhbXBsZSgpIHV0ayBtZW1pbGloIGlzaSBkYXJpIG9iamVrIHRpdGlrIHNlY2FyYSByYW5kb20gc2ViYW55YWsgSyBidWFoLg0KDQpvYmpla190aXRpayA8LSBzYW1wbGUoZGYkdGl0aWssMikNCnByaW50KG9iamVrX3RpdGlrKQ0KYGBgDQojIFRhaGFwIDMNCk1lbmdoaXR1bmcgamFyYWsgbWFzaW5nLW1hc2luZyB0aXRpay4NCmBgYHtyfQ0KDQpwcmludCgiTWVuZ2hpdHVuZyBqYXJhayBkZW5nYW4gRXVjbGlkZWFuIGRpc3RhbmNlIFxuIikNCg0KZXVjbGlkZWFuX2Rpc3RhbmNlIDwtIGZ1bmN0aW9uKGRhdGEsY2VudHJvaWQpew0KICB0b3JpcyA9IG5yb3coZGF0YSkNCiAgdG8gPC0gKGxlbmd0aChkYXRhWywxXSkgLTEpDQogIHRvdGFsX2NlbnRyb2lkID0gbGVuZ3RoKGNlbnRyb2lkKQ0KICBhPTENCiAgYj0xDQogIG5pbGFpX2QgPSBjKCkNCiAgZCA9IGMoKQ0KICANCiAgZGF0YXNlbSA8LSBkYXRhLmZyYW1lKCkNCiAgZGF0YWhhc2lsIDwtIGRhdGEuZnJhbWUoSUQgPSBpbnRlZ2VyKCksIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkNCiAgIyBuX3Jvd3MgPC0gNg0KICBkYXRhaGFzaWwgPC0gZGF0YS5mcmFtZShJRCA9IDE6dG8sIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkNCiAgd2hpbGUgKGIgPD0gdG90YWxfY2VudHJvaWQpIHsNCiAgICBuaWxhaV9kIDwtIE5VTEwNCiAgICBkIDwtIE5VTEwNCiAgICBhPTENCiAgICB3aGlsZShhPD10b3Jpcyl7DQogICAgICBjZW50cm9pZF91cnV0YW4gPC0gd2hpY2goYXMubWF0cml4KGRhdGEpID09IGNlbnRyb2lkW2JdLCBhcnIuaW5kID0gVFJVRSkNCiAgICAgIGNlbnRyb2lkX2FuZ2thIDwtIGFzLm51bWVyaWMoY2VudHJvaWRfdXJ1dGFuWzFdKQ0KICAgICAgaWYoY2VudHJvaWRbYl0gIT0gZGF0YVthLDFdKXsNCiAgICAgICAgaGFzaWwgPSBzcXJ0KChkYXRhW2NlbnRyb2lkX2FuZ2thLDJdIC0gZGF0YVthLDJdKV4yICsgKGRhdGFbY2VudHJvaWRfYW5na2EsM10tZGF0YVthLDNdKV4yKQ0KICAgICAgICBuaWxhaV9kID0gYyhuaWxhaV9kLCBoYXNpbCkNCiAgICAgICAgZCA9IGMoZCxwYXN0ZShkYXRhW2NlbnRyb2lkX2FuZ2thLDFdLGRhdGFbYSwxXSwgc2VwID0iIikpDQogICAgICB9DQogICAgICAjZGF0YWhhc2lsIDwtIGNiaW5kKGRhdGFoYXNpbCwgVGl0aWsgPSBkKQ0KICAgICAgI2RhdGFoYXNpbCA8LSBjYmluZChkYXRhaGFzaWwsIEphcmFrID0gbmlsYWlfZCkNCiAgICAgICNwcmludChwYXN0ZSgiSGFzaWwgZGFyaSAiLGRhdGFbY2VudHJvaWQsMV0sZGF0YVthLDFdLCIgOiAiLGhhc2lsLHNlcD0iIikpDQogICAgICANCiAgICAgICNuYW1hX2phcmFrIDwtIHBhc3RlKCJqYXJha18iLGNlbnRyb2lkX3VydXRhbixzZXAgPSAiIikNCiAgICAgICNwcmVmaXggPC0gInRpdGlrXyINCiAgICAgICNzdWZmaXggPC0gIl9EYXRhIg0KICAgICAgIyBwcmludChuYW1hX3RpdGlrKQ0KICAgICAgI2RhdGFoYXNpbCA8LSBkYXRhLmZyYW1lKFRpdGlrID0gZCwgSmFyYWsgPSBuaWxhaV9kKQ0KICAgICAgI2lmKGEgPT0gMSl7DQogICAgICAjICBkYXRhaGFzaWwgPC0gZGF0YS5mcmFtZShUaXRpayA9IGQsIEphcmFrID0gbmlsYWlfZCkNCiAgICAgICN9ZWxzZXsNCiAgICAgICMgIG5hbWFfdGl0aWsgPC0gcGFzdGUoInRpdGlrXyIsY2VudHJvaWRfdXJ1dGFuKQ0KICAgICAgIyAgbmFtYV9qYXJhayA8LSBwYXN0ZSgiamFyYWtfIixjZW50cm9pZF91cnV0YW4pDQogICAgICAjICBkYXRhaGFzaWwgPC0gY2JpbmQoZGF0YWhhc2lsLCBuYW1hX3RpdGlrID0gZCkNCiAgICAgICMgIGRhdGFoYXNpbCA8LSBjYmluZChkYXRhaGFzaWwsIG5hbWFfamFyYWsgPSBuaWxhaV9kKQ0KICAgICAgI30NCiAgICAgIGE9MSthDQogICAgfQ0KICAgIG5hbWFfdGl0aWsgPC0gcGFzdGUoInRpdGlrXyIsYixzZXAgPSAiIikNCiAgICBkYXRhaGFzaWxbbmFtYV90aXRpa10gPC0gZA0KICAgIG5hbWFfamFyYWsgPC0gcGFzdGUoImphcmFrXyIsYixzZXAgPSAiIikNCiAgICBkYXRhaGFzaWxbbmFtYV9qYXJha10gPC0gbmlsYWlfZA0KICAgIGI9MStiDQogIH0NCiAgI2RhdGFoYXNpbCA8LSBkYXRhLmZyYW1lKFRpdGlrID0gZCwgSmFyYWsgPSBuaWxhaV9kKQ0KICAjcmVzdWx0IDwtIGNiaW5kKGRhdGFoYXNpbCxkYXRhKQ0KICByZXR1cm4gKGRhdGFoYXNpbCkNCn0NCmBgYA0KYGBge3J9DQp0ZXN0IDwtIGV1Y2xpZGVhbl9kaXN0YW5jZShkZixvYmpla190aXRpaykNCnRlc3QNCg0KI3RvdGFsX2NlbnRyb2lkID0gbGVuZ3RoKG9iamVrX3RpdGlrKQ0KI3ByaW50KGNsYXNzKHRvdGFsX2NlbnRyb2lkKSkNCiNodXJ1ZiA8LSAiRCINCiNjZW50cm9pZF91cnV0YW4gPC0gd2hpY2goYXMubWF0cml4KGRmKSA9PSBodXJ1ZiwgYXJyLmluZCA9IFRSVUUpDQojcHJpbnQoY2VudHJvaWRfdXJ1dGFuKQ0KDQojeHh4eCA8LSBkYXRhLmZyYW1lKEEgPSBjKCJhIiwgImIiLCAiYyIpLCBCID0gYygiZCIsICJlIiwgImYiKSkNCg0KIyBNZW5jYXJpIGh1cnVmIGRhbGFtIGRhdGEgZnJhbWUgYmVyZGFzYXJrYW4gbm9tb3IgdXJ1dGFuDQojaHVydWYgPC0gIkQiDQojbm9tb3JfdXJ1dGFuIDwtIHdoaWNoKGFzLm1hdHJpeChkZikgPT0gaHVydWYsIGFyci5pbmQgPSBUUlVFKQ0KI3ByaW50KG5vbW9yX3VydXRhbikNCiNkZg0KYGBgDQojIyBUYWhhcCA0DQpNZW5lbnR1a2FuIGFuZ2dvdGEgY2x1c3RlciAxIGRhbiAyIGRnbiBjYXJhIG1lbWJhbmRpbmdrYW4gaGFzaWwgcGVyaGl0dW5nYW4gZGkgYXRhcy4NCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0K</div>
 
 
 
