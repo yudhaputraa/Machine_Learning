@@ -1,0 +1,9 @@
+---
+title: "Latihan K-Means 3"
+output: html_notebook
+---
+
+
+```{r}
+
+```
