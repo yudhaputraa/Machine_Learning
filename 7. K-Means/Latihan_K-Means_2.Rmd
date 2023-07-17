@@ -171,6 +171,14 @@ text(df1$x,df1$y, labels=df1$titik, cex=0.7,pos=3)
 print(df1)
 ```
 
+## Tahap 6 
+Menghitung jarak d antara titik-titik dgn centroid yang baru.
+
+```{r}
+objek_titik <- c("C1","C2")
+finish <- euclidean_distance(df1,objek_titik)
+print(finish)
+```
 
 
 
