@@ -1,0 +1,108 @@
+---
+title: "Bootstrap"
+output: html_notebook
+---
+
+```{r}
+x <- c(8.26, 6.33, 10.4, 5.27, 5.35, 5.61, 6.12, 6.19, 5.2, 7.01, 8.74, 7.78, 7.02, 6, 6.5, 5.8, 5.12, 7.41, 6.52, 6.21, 12.28, 5.6, 5.38, 6.6, 8.74)
+print(x)
+```
+Mengitung nilai coefficient of variation dgn rumus:
+```{r}
+CV <- function(x) sqrt(var(x))/mean(x)
+```
+
+```{r}
+CV(x)
+```
+```{r}
+sample(x, replace = T)
+```
+Membuat single boostrap sample dari coefficient of variation(CV).
+```{r}
+CV(sample(x,replace = T))
+```
+Selanjutnya membuat dataset boostrap dgn 1000 buah sample.
+```{r}
+boot <- numeric(1000)
+for (i in 1:1000) boot[i] <- CV(sample(x,replace = T))
+```
+
+Tentukan selang kepercayaan. Misal sebesar 10%. Artinya batas atasnya 95% dan batas bawahnya 5%.
+Menghitung nilai (di atas) selang kepercayaan 5%.
+```{r}
+quantile(boot, 0.9)
+```
+Menentukan nilai (di bawah) selang kepercayaan 5%.
+```{r}
+quantile(boot, 0.05)
+```
+Nilai yg ditampilkan mungkin saja bisa berbeda-beda. Karena R akan memberikan nilai boot[i] yg berbeda-beda setiap kali perintah diketikkan. Berikut contoh-contohnya.
+```{r}
+boot <- numeric(1000)
+boot
+```
+
+```{r}
+for (i in 1:1000) boot[i] <- CV(sample(x,replace = T))
+
+boot[i]
+```
+
+```{r}
+for (i in 1:1000) boot[i] <- CV(sample(x,replace = T))
+
+boot[i]
+```
+
+```{r}
+for (i in 1:1000) boot[i] <- CV(sample(x,replace = T))
+
+boot[i]
+```
+
+Perhatian bagaimana nilai boot[i] selalu berubah-ubah.
+
+Berikut ini disajikan penggalan dataset bootstrap (boot) (yang juga berubah-ubah).
+```{r}
+boot
+```
+
+Berdasarkan sample data di atas, kita bisa menampilkan beberapa informasi lain (yang tidak secara langsung terkait dgn booststrap).
+Berikut beberapa di antaranya.
+
+Menghitung jumlah elemen (sample)
+```{r}
+length(x)
+```
+
+Menjumlahkan semua sample.
+```{r}
+sum(x)
+```
+
+Menghitung nilai mean.
+```{r}
+mean(x)
+```
+
+Menghitung nilai variable.
+```{r}
+var(x)
+```
+
+Menghitung standar deviasi.
+```{r}
+sd(x)
+```
+
+Untuk menghitung nilai mean dan variance dari dataset bootstrap dpt digunakan perintah berikut.
+```{r}
+mean(boot)
+var(boot)
+```
+
+Menampilkan diagram historical.
+```{r}
+hist(boot)
+```

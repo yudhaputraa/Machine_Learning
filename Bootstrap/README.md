@@ -1,0 +1,3 @@
+# Bootstrap/Bootstrapping
+
+Bootstrap adalah metode pembentukan dataset yg sudah ada. Masing-masing bootstrap dataset akan memiliki jumlah elemen yang sama dgn dataset asli. Metode ini seringkali berfungsi baik pada dataset berukur kecil, yaitu kurang dari 40 buah data. bootstrap adalah proses pembentukan dataset baru, dimana jumlah sample dataset bootstrap sama dengan jumlah sample dataset asli. Agar lebih mudah memahaminya.
