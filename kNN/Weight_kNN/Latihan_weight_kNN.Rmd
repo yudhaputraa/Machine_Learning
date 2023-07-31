@@ -1,0 +1,49 @@
+---
+title: "Latihan Weight k-NN"
+output: html_notebook
+---
+
+
+```{r}
+install.packages("kknn")
+```
+Untuk keperluan latihan akan digunakan dataset iris.
+```{r}
+library(kknn)
+
+data("iris")
+m <- dim(iris)[1]
+val <- sample(1:m, size = round(m/3), replace = FALSE, prob = rep(1/m, m))
+
+iris.learn <- iris[-val,]
+iris.valid <- iris[val,]
+iris.kknn <- kknn(Species~., iris.learn, iris.valid, distance = 1, kernel = "triangular")
+
+summary(iris.kknn)
+```
+```{r}
+fit <- fitted(iris.kknn)
+table(iris.valid$Species, fit)
+```
+```{r}
+pcol <- as.character(as.numeric((iris.valid$Species)))
+```
+plot grafiknya.
+```{r}
+pairs(iris.valid[1:4], pch = pcol, col = c("green3","red")[(iris.valid$Species != fit)+1])
+```
+
+Kira-kira berapakah nilai k yang gunakan oleh fungsi kknn ini?
+Untuk mengetahui, kode berikut:
+```{r}
+ncol(iris.kknn$C)
+```
+```{r}
+ncol(iris.kknn$D)
+```
+```{r}
+ncol(iris.kknn$W)
+```
+```{r}
+ncol(iris.kknn$CL)
+```
