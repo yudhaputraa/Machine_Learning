@@ -1,0 +1,21 @@
+---
+title: "Latihan Weight K-Means"
+output: html_notebook
+---
+
+```{r}
+install.packages("wskm")
+library(wskm)
+```
+
+Hasil plotnya sebagai berikut.
+```{r}
+myewkm <- ewkm(iris[1:4], 3, lambda=0.5, maxiter=100)
+plot(iris[1:4], col=myewkm$cluster)
+```
+
+Sebagai perbadingan, berikut ini soal yg sama tapi dikerjakan menggunakan metode k-NN classic.
+```{r}
+mykm <- kmeans(iris[1:4], 3)
+plot(iris[1:4], col = mykm$cluster)
+```
