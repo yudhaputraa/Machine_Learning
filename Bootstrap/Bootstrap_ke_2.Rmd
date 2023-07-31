@@ -1,0 +1,77 @@
+---
+title: "Bootstrap"
+output: html_notebook
+---
+
+```{r}
+install.packages("boot")
+library(boot)
+```
+
+```{r}
+install.packages("bootstrap")
+library(bootstrap)
+```
+
+```{r}
+library(boot)
+
+ratio <- function(d, w) sum(d$x * w)/sum(d$u * w)
+mydata <- boot(city, ratio, R = 999, stype = "w")
+
+mydata
+```
+```{r}
+plot(mydata)
+```
+
+```{r}
+library(boot)
+
+x <- c(8.26, 6.33, 10.4, 5.27, 5.35, 5.61, 6.12, 6.19, 5.2, 7.01, 8.74, 7.78, 7.02, 6, 6.5, 5.8, 5.12, 7.41, 6.52, 6.21, 12.28, 5.6, 5.38, 6.6, 8.74)
+print(x)
+```
+
+Membuat fungsi CV dgn sedikit modifikasi agar  dpt diolah oleh fungsi boot.
+```{r}
+CV <- function(x, id){
+  xs <- x[id]
+  sqrt(var(xs))/mean(xs)
+}
+
+CV
+```
+
+```{r}
+CV(x)
+```
+```{r}
+bootdata <- boot(data=x, CV, R=1000)
+
+bootdata
+```
+
+Menampilkan selang kepercayaan dgn fungsi boot.ci.
+```{r}
+boot.ci(bootdata)
+```
+
+Nilai percentile ini mendekati hasil sebelumnya, yaitu 0.3092094 dan 0.1602328.
+
+Terakhir, plot grafiknya dgn perintah.
+```{r}
+plot(bootdata)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
