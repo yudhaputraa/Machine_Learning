@@ -68,25 +68,3 @@ test.dir <- temp_list$testdir
 
 rm(temp_list)
 ```
-
-```{r}
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
