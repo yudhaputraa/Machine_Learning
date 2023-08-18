@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beasiswa</title>
+</head>
+<body>
+    <h1>Prediksi Beasiswa</h1>
+    <div class="container">
+        <form method="POST" action="{{url_for('predict')}}">
+            <div>
+                <label>Nilai IPK</label>
+                <input type="text-align" name="variable1">
+            </div>
+            <div>
+                <label>Tingkat Kemiskinan</label>
+                <input type="text-align" name="variable2">
+            </div>
+            <button style="text-align:center;">Cek Prediksi</button>
+        </form>
+    </div>
+    
+</body>
+</html>

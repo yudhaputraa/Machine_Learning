@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beasiswa</title>
+</head>
+<body>
+    <h1>Prediksi Beasiswa</h1>
+    <div class="container">
+        <h3>Prediksi Beasiswa = 
+            {% if hasil == 0 %}
+            Tidak Mendapatkan Beasiswa
+            {% elif hasil == 1 %}
+            Mendapatkan Beasiswa
+            {% endif %}
+        </h3>
+    </div>
+</body>
+</html>
