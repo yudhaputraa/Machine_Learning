@@ -1,3 +1,6 @@
+# Regresi
+adalah metode statistik yang digunakan untuk memodelkan hubungan antara satu atau lebih variabel independen (fitur) dengan variabel dependen (target) dalam rangka memprediksi nilai target berdasarkan nilai-nilai fitur tersebut. Tujuannya adalah untuk memahami pola hubungan antara variabel-variabel dan membuat prediksi yang akurat berdasarkan data yang ada. Regresi dapat digunakan untuk analisis prediksi numerik (regresi linier, regresi non-linier) atau klasifikasi (regresi logistik).
+
 # Linier Regression
 Linear regression adalah suatu metode statistik yang digunakan untuk menentukan hubungan linier antara dua variabel. Tujuannya adalah untuk membangun model matematis yang dapat digunakan untuk memprediksi nilai dari satu variabel (disebut variabel dependen atau variabel respons) berdasarkan nilai dari variabel lainnya (disebut variabel independen atau variabel prediktor).
 
