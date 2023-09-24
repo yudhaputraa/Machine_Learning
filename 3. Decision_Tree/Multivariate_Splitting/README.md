@@ -1,0 +1,9 @@
+## Multi-splitting
+
+Multi-splitting (pemisahan ganda) dalam konteks decision tree adalah konsep di mana pada setiap tingkat pohon keputusan, lebih dari satu atribut atau fitur dapat digunakan secara bersamaan untuk membagi dataset menjadi beberapa subset. Ini berbeda dari pemisahan tunggal, di mana hanya satu atribut yang digunakan pada setiap tingkat.
+
+Multi-splitting bertujuan untuk meningkatkan kemampuan pohon keputusan dalam memahami hubungan kompleks antara berbagai fitur dan kelas target. Dengan menggunakan lebih dari satu fitur pada suatu tingkat, pohon keputusan memiliki potensi untuk menghasilkan pemisahan yang lebih kompleks dan lebih akurat.
+
+Beberapa algoritma decision tree yang mendukung multi-splitting termasuk C4.5 (dan turunannya, seperti C5.0) dan CHAID. Dalam algoritma-algoritma ini, pemilihan beberapa atribut atau fitur untuk pemisahan bergantung pada perhitungan tingkat signifikansi statistik atau peningkatan signifikansi terhadap entropi atau keuntungan informasi. Dengan kata lain, algoritma memilih atribut-atribut yang, ketika digunakan bersama-sama, memberikan penurunan entropi atau peningkatan informasi yang signifikan dalam proses pemisahan.
+
+Keuntungan dari multi-splitting adalah meningkatkan kapabilitas pohon keputusan dalam menangani data yang lebih kompleks atau memiliki hubungan antar-fitur yang rumit. Namun, ini juga dapat menghasilkan pohon yang lebih kompleks dan sulit diinterpretasikan, serta memerlukan komputasi yang lebih intensif. Oleh karena itu, penggunaan multi-splitting biasanya disesuaikan dengan kebutuhan spesifik masalah dan sifat dataset yang Anda hadapi.
