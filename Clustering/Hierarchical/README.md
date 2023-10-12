@@ -1,3 +1,5 @@
+# Hierarchical Clustering
+
 Hierarchical Clustering, atau pengelompokan hierarki, adalah metode analisis data yang digunakan untuk mengelompokkan objek atau titik data ke dalam kelompok yang saling berhubungan dalam sebuah struktur berhierarki. Tujuan dari metode ini adalah untuk menciptakan representasi visual dari hubungan antara objek dalam bentuk pohon atau dendrogram.
 
 Berikut adalah langkah-langkah dasar dalam algoritma Hierarchical Clustering:
