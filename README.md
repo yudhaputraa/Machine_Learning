@@ -40,3 +40,5 @@ Berikut adalah beberapa algoritma dalam machine learning yang populer:
 17. Generative Adversarial Networks (GAN): Jenis neural network yang terdiri dari dua model, generator dan diskriminator, yang bersaing satu sama lain. GAN digunakan untuk menghasilkan data baru yang realistis dengan mempelajari distribusi data latihan.
 
 18. Support Vector Regression (SVR): Versi regresi dari Support Vector Machines (SVM). Algoritma ini digunakan untuk memodelkan hubungan antara variabel input dan output kontinu dengan mencari hyperplane yang memiliki margin maksimum.
+
+by Yudha
