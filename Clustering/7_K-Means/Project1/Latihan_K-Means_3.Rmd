@@ -1,0 +1,116 @@
+---
+title: "Latihan K-Means 3"
+output: html_notebook
+---
+
+Setelah mencoba menjalankan algoritma K-Means dgn dua cara dan selanjutnya, kita akan mencoba menggunakan fungsi bawaan R utk memudahkan menyelesaikan permasalahan yg membutuhkan K-Means.
+
+Sebagai latihan, akan digunakan dataset iris.
+```{r}
+require("datasets")
+data("iris")
+head(iris)
+```
+seperti biasa, kita harus mengolah dataset yg sudah ada agar cocok dgn metode yg akan digunakan.
+```{r}
+iris.new <- iris[,c(1,2,3,4)]
+iris.class <- iris[,"Species"]
+```
+cara lain menghapus kolom Spicies (kolom ke-5) dgn perintah berikut.
+(iris.class <- iris[-5])
+```{r}
+head(iris.new)
+head(iris.class)
+```
+Melakukan normalisasi data (mirip seperti yang pernah dilakukan pd k-NN).
+```{r}
+normalize <- function(x){
+  return ((x-min(x))/(max(x)-min(x)))
+}
+
+iris.new$Sepal.Length <- normalize(iris.new$Sepal.Length)
+iris.new$Sepal.Width <- normalize(iris.new$Sepal.Width)
+iris.new$Petal.Length <- normalize(iris.new$Petal.Length)
+iris.new$Petal.Width <- normalize(iris.new$Petal.Width)
+head(iris.new)
+```
+Sebelum menerpkan algoritma K-Means, ada baiknya mengamati mean dan standar deviasi dgn perintah berikut.
+```{r}
+sapply(iris.new,mean)
+```
+```{r}
+sapply(iris.new,sd)
+```
+Gunakan fungsi kmeans() untuk menjalankan algoritma K-Mean.
+```{r}
+result <- kmeans(iris.new,3)
+```
+jumblah anggota masing-masing cluster dpt dimunculkan dgn perintah.
+```{r}
+result$size
+```
+Kita bisa menampilkan centroid masing-masing cluster.
+```{r}
+result$centers
+```
+Menampilkan cluster vector (yang menggambarkkan data-data pada cluster 1,2,dan,3).
+```{r}
+result$cluster
+```
+Memplot 4 buah grafik sekaligus pada sebuah halaman.
+```{r}
+par(mfrow=c(2,2), mar=c(5,4,2,2))
+
+plot(iris.new[c(1,2)], col=result$cluster)
+plot(iris.new[c(1,2)], col=iris.class)
+plot(iris.new[c(3,4)], col=result$cluster)
+plot(iris.new[c(3,4)], col=iris.class)
+
+```
+```{r}
+table(result$cluster,iris.class)
+```
+Setelah  mencoba menyelesaikan latihan  K-Means menggunkan  dataset di atas , marilah mencoba melihat seperti apa latihan K-Means versi lain.
+```{r}
+require(graphics)
+
+# a 2-dimensional example
+x<- rbind(matrix(rnorm(100, sd= 0.3),ncol =2),matrix(rnorm(100, mean =1, sd = 0.3), ncol = 2))
+colnames(x) <- c("x","y")
+(cl <- kmeans(x,2))
+```
+```{r}
+plot(x,col = cl$cluster)
+points(cl$centers, col = 1:2, pch = 8, cex = 2)
+
+# sum of squares
+ss <- function(x) sum(scale(x,scale = FALSE)^2)
+
+## cluster centers "fitted" to each obs. :
+fitted.x <- fitted(cl); head(fitted.x)
+```
+```{r}
+resid.x <- x - fitted(cl)
+
+## Equalities :
+cbind(cl[c("betweenss", "tot.withinss", "totss")], # the same two colums
+      c(ss(fitted.x), ss(resid.x), ss(x)))
+stopifnot(all.equal(cl$ totss, ss(x)),
+          all.equal(cl$ tot.withinss, ss(resid.x)),
+          ## these three are the same
+          all.equal(cl$ betweenss, ss(fitted.x)),
+          all.equal(cl$ betweenss, cl$totss - cl$tot.withinss),
+          ## and hence also
+          all.equal(ss(x), ss(fitted.x) + ss(resid.x))
+          )
+kmeans(x,1)$withinss # trival one-cluster, (its W.SS == ss(x))
+```
+```{r}
+## random starts do help here with too many cluster
+## (and are often recommended anyway!) :
+(cl <- kmeans(x, 5, nstart = 25))
+```
+```{r}
+plot(x, col = cl$cluster)
+points(cl$centers, col =  1:5, pch = 8)
+```

@@ -1,0 +1,224 @@
+---
+title: "Latihan K-Means 2"
+output: html_notebook
+---
+
+## Tahap 1
+Membuat objek utk menampung setiap titik koordinat.
+```{r}
+A <- c(1.5,1.0)
+B <- c(1.0,2.0)
+C <- c(3.0,4.5)
+D <- c(5.5,7.0)
+E <- c(3.5,5.5)
+F <- c(4.5,5.0)
+G <- c(3.5,4.5)
+```
+Hasil :
+```{r}
+A
+B
+C
+D
+E
+F
+G
+```
+```{r}
+df <- data.frame(titik = c('A','B','C','D','E','F','G'), x = c(1.5,1.0,3.0,5.5,3.5,4.5,3.5), y = c(1.0,2.0,4.5,7.0,5.5,5.0,4.5))
+```
+
+```{r}
+plot(df$x,df$y,main = "Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df$x,df$y, labels=df$titik, cex=0.7,pos=3)
+```
+## Tahap 2
+Tentukan jumblah cluster, yaitu k=2 dan juga pilih titik centroid cluster secara random.
+```{r}
+# fungsi sample() utk memilih isi dari objek titik secara random sebanyak K buah.
+
+objek_titik <- sample(df$titik,2)
+print(objek_titik)
+```
+# Tahap 3
+Menghitung jarak masing-masing titik.
+```{r}
+
+print("Menghitung jarak dengan Euclidean distance \n")
+
+euclidean_distance <- function(data,centroid){
+  toris = nrow(data)
+  to <- (length(data[,1]) -1)
+  total_centroid = length(centroid)
+  a=1
+  b=1
+  nilai_d = c()
+  d = c()
+  
+  datasem <- data.frame()
+  datahasil <- data.frame(ID = integer(), stringsAsFactors = FALSE)
+  # n_rows <- 6
+  datahasil <- data.frame(ID = 1:to, stringsAsFactors = FALSE)
+  while (b <= total_centroid) {
+    nilai_d <- NULL
+    d <- NULL
+    a=1
+    while(a<=toris){
+      centroid_urutan <- which(as.matrix(data) == centroid[b], arr.ind = TRUE)
+      centroid_angka <- as.numeric(centroid_urutan[1])
+      if(centroid[b] != data[a,1]){
+        hasil = sqrt((data[centroid_angka,2] - data[a,2])^2 + (data[centroid_angka,3]-data[a,3])^2)
+        nilai_d = c(nilai_d, hasil)
+        d = c(d,paste(data[centroid_angka,1],data[a,1], sep =""))
+      }
+      #datahasil <- cbind(datahasil, Titik = d)
+      #datahasil <- cbind(datahasil, Jarak = nilai_d)
+      #print(paste("Hasil dari ",data[centroid,1],data[a,1]," : ",hasil,sep=""))
+      
+      #nama_jarak <- paste("jarak_",centroid_urutan,sep = "")
+      #prefix <- "titik_"
+      #suffix <- "_Data"
+      # print(nama_titik)
+      #datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+      #if(a == 1){
+      #  datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+      #}else{
+      #  nama_titik <- paste("titik_",centroid_urutan)
+      #  nama_jarak <- paste("jarak_",centroid_urutan)
+      #  datahasil <- cbind(datahasil, nama_titik = d)
+      #  datahasil <- cbind(datahasil, nama_jarak = nilai_d)
+      #}
+      a=1+a
+    }
+    nama_titik <- paste("titik_",b,sep = "")
+    datahasil[nama_titik] <- d
+    nama_jarak <- paste("jarak_",b,sep = "")
+    datahasil[nama_jarak] <- nilai_d
+    b=1+b
+  }
+  #datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+  #result <- cbind(datahasil,data)
+  return (datahasil)
+}
+```
+```{r}
+test <- euclidean_distance(df,objek_titik)
+test
+
+#total_centroid = length(objek_titik)
+#print(class(total_centroid))
+#huruf <- "D"
+#centroid_urutan <- which(as.matrix(df) == huruf, arr.ind = TRUE)
+#print(centroid_urutan)
+
+#xxxx <- data.frame(A = c("a", "b", "c"), B = c("d", "e", "f"))
+
+# Mencari huruf dalam data frame berdasarkan nomor urutan
+#huruf <- "D"
+#nomor_urutan <- which(as.matrix(df) == huruf, arr.ind = TRUE)
+#print(nomor_urutan)
+#df
+```
+## Tahap 4
+Menentukan anggota cluster 1 dan 2 dgn cara membandingkan hasil perhitungan di atas.
+
+## Tahap 5
+Menentukan centroid baru utk cluster 1 dan cluster 2.
+```{r}
+
+mean_centroid <- function(data, dataPilih){
+  toris = nrow(data)
+  pp = length(dataPilih)
+  a=1
+  dataX = 0
+  dataY = 0
+  while(a<=toris){
+    b=1
+    while(b<=pp){
+      if(a == dataPilih[b]){
+        dataX = dataX + data[a,2]
+        dataY = dataY + data[a,3]
+      }
+      b=b+1
+    }
+    a=1+a
+  }
+  dataY = dataY/pp
+  dataX = dataX/pp
+  datahasil <- c(dataX,dataY)
+  #print(datahasil)
+  return(datahasil)
+}
+```
+
+
+```{r}
+titikTerpilih1 <- c(1,2)
+titikTerpilih2 <- c(3,4,5,6,7)
+centroid1 <- mean_centroid(df,titikTerpilih1)
+centroid2 <- mean_centroid(df,titikTerpilih2)
+
+print(centroid1)
+print(centroid2)
+
+x <- c(centroid1[1],centroid2[1])
+y <- c(centroid1[2],centroid2[2])
+titik <- c('C1','C2')
+dfc <- data.frame(titik = c('C1','C2'), x = c(centroid1[1],centroid2[1]), y = c(centroid1[2],centroid2[2]))
+df1 <- rbind(df, dfc)
+plot(df1$x,df1$y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df1$x,df1$y, labels=df1$titik, cex=0.7,pos=3)
+print(df1)
+```
+
+## Tahap 6 
+Menghitung jarak d antara titik-titik dgn centroid yang baru.
+
+```{r}
+objek_titik <- c("C1","C2")
+finish <- euclidean_distance(df1,objek_titik)
+print(finish)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

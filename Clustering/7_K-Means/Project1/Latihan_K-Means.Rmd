@@ -1,0 +1,195 @@
+---
+title: "Latihan K-Means"
+output: html_notebook
+---
+
+## Membuat dataset
+```{r}
+x <- c(1.5,1.0,3.0,5.5,3.5,4.5,3.5)
+y <- c(1.0,2.0,4.5,7.0,5.5,5.0,4.5)
+titik <- c('A','B','C','D','E','F','G')
+
+df <- data.frame(titik = c('A','B','C','D','E','F','G'), x = c(1.5,1.0,3.0,5.5,3.5,4.5,3.5), y = c(1.0,2.0,4.5,7.0,5.5,5.0,4.5))
+print(df)
+```
+
+## Tahap 1
+utk memudah memahami sebaran datanya, sebaiknya plot dataset dlm bentuk grafik dgn menggunakan R.
+```{r}
+plot(x,y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(x,y, labels=titik, cex=0.7,pos=3)
+```
+## Tahap 2
+Menentukan nilai k, yang identitas dengan jumblah cluster. Mengingat datanya hanya sedikt, kita menetukan 2 buah cluster saja.
+
+## Tahap 3
+Menentukan titik tengah cluster atau centroid. saat ini belum ada data lain atau hasil perhitungan data. Sehingga pd tahap ini kita bebas memilih 2 buah titik dari dataset yg akan dijadikan sebagai titik tengah.
+
+yang kita pilih B(1.0, 2.0) dan F(4.5, 5.0)
+
+
+## Tahap 4
+Menghitung jarak masing-masing titik.
+```{r}
+
+print("Menghitung jarak dengan Euclidean distance \n")
+
+euclidean_distance <- function(data,centroid){
+  toris = nrow(data)
+  a=1
+  nilai_d = c()
+  d = c()
+
+  while(a<=toris){
+    if(centroid != a){
+      hasil = sqrt((data[centroid,2] - data[a,2])^2 + (data[centroid,3]-data[a,3])^2)
+      nilai_d = c(nilai_d, hasil)
+      d = c(d,paste(data[centroid,1],data[a,1], sep =""))
+      #print(paste("Hasil dari ",data[centroid,1],data[a,1]," : ",hasil,sep=""))
+    }
+    a=1+a
+  }
+  datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+  return (datahasil)
+}
+
+
+```
+```{r}
+cluster_1 = euclidean_distance(df, 2)
+print(cluster_1)
+```
+```{r}
+cluster_2 = euclidean_distance(df, 6)
+print(cluster_2)
+```
+
+```{r}
+print("Hasil dari perhitungan")
+#data_hasil = data.frame( d = d,nilai_d=nilai_d )
+#print(data_hasil)
+```
+
+
+## Tahap 5
+Menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasarkan jarak terdekat dgn masing-masing centroid
+
+# Tahap 6
+Menentukan titik centroid yg baru. kali ini kita perlu menghitung nilai centroid yg sesunggunya (tidak lagi menebak-nebak).
+```{r}
+
+mean_centroid <- function(data, dataPilih){
+  toris = nrow(data)
+  pp = length(dataPilih)
+  a=1
+  dataX = 0
+  dataY = 0
+  while(a<=toris){
+    b=1
+    while(b<=pp){
+      if(a == dataPilih[b]){
+        dataX = dataX + data[a,2]
+        dataY = dataY + data[a,3]
+      }
+      b=b+1
+    }
+    a=1+a
+  }
+  dataY = dataY/pp
+  dataX = dataX/pp
+  datahasil <- c(dataX,dataY)
+  #print(datahasil)
+  return(datahasil)
+}
+```
+
+```{r}
+titikTerpilih1 <- c(1,2)
+titikTerpilih2 <- c(3,4,5,6,7)
+centroid1 <- mean_centroid(df,titikTerpilih1)
+centroid2 <- mean_centroid(df,titikTerpilih2)
+
+print(centroid1)
+print(centroid2)
+print(paste("Jadi titik centroid ke-1 yang baru adalah ",centroid1[1]," , ",centroid1[2]," , ","sebut saja C1",sep=""))
+print(paste("Jadi titik centroid ke-2 yang baru adalah ",centroid2[1]," , ",centroid2[2]," , ","sebut saja C2",sep=""))
+#print(titikTerpilih1[1])
+```
+```{r}
+x <- c(centroid1[1],centroid2[1])
+y <- c(centroid1[2],centroid2[2])
+titik <- c('C1','C2')
+dfc <- data.frame(titik = c('C1','C2'), x = c(centroid1[1],centroid2[1]), y = c(centroid1[2],centroid2[2]))
+df1 <- rbind(df, dfc)
+plot(df1$x,df1$y,col="blue",main="Titik Kordinat",cex=1.3,pch=16,xlab="X",ylab="Y")
+text(df1$x,df1$y, labels=df1$titik, cex=0.7,pos=3)
+print(df1)
+```
+## Tahap 7
+Temukan kembali jarak d terdekat dari masing-masing titik dengan C1 dan C2 
+
+```{r}
+
+print("Menghitung jarak dengan Euclidean distance \n")
+
+euclidean_distance_centroid <- function(data,centroid_x,centroid_y,nama){
+  toris = nrow(data)
+  a=1
+  nilai_d = c()
+  d = c()
+
+  while(a<=toris){
+    hasil = sqrt((centroid_x - data[a,2])^2 + (centroid_y-data[a,3])^2)
+    nilai_d = c(nilai_d, hasil)
+    d = c(d,paste(data[a,1],nama, sep =""))
+    #print(paste("Hasil dari ",data[centroid,1],data[a,1]," : ",hasil,sep=""))
+    a=1+a
+  }
+  datahasil <- data.frame(Titik = d, Jarak = nilai_d)
+  return (datahasil)
+}
+```
+
+```{r}
+jarak1 <- euclidean_distance_centroid(df,centroid1[1],centroid1[2],"C1")
+print(jarak1)
+```
+```{r}
+jarak2 <- euclidean_distance_centroid(df,centroid2[1],centroid2[2],"C2")
+print(jarak2)
+```
+## Tahap 8
+menentukan titik-titik mana saja yg masuk dlm cluster 1 dan cluster 2, berdasarkan jatak terdekat dgn masing-masing centroid.
+```{r}
+df_combined <- cbind(jarak1,jarak2)
+print(df_combined)
+```
+## Tahap 9
+Jika kita mengulangi kembali proses pencarian mean utk menemukan centroid yg baru maka akan dpt diketahui bahwa tidak akan ada pergeseran anggota cluster atau titik centoid. Dalam hal ini apa yang kita cari sudah tercapai dan algoritma dpt dihentikan.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
